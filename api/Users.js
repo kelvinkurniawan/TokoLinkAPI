@@ -14,9 +14,9 @@ exports.users = function(req, res) {
 }
 
 exports.findUsers = function(req, res) {
-	var id = req.params.id
+	var _id = req.params.id
 
-	connection.query("SELECT * FROM users where id = ?", [id], function(
+	connection.query("SELECT * FROM users where id = ?", [_id], function(
 		error,
 		rows,
 		fields,

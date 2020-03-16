@@ -3,6 +3,7 @@
 module.exports = function(app) {
 	var UsersApi = require("./api/Users")
 	var TokoApi = require("./api/Toko")
+	var ItemsApi = require("./api/Items")
 
 	app.route("/").get(UsersApi.index)
 
@@ -19,4 +20,11 @@ module.exports = function(app) {
 	app.route("/toko").post(TokoApi.createToko)
 	app.route("/toko").put(TokoApi.updateToko)
 	app.route("/toko").delete(TokoApi.deleteToko)
+
+	// Items Routes
+	app.route("/items").get(ItemsApi.items)
+	app.route("/items/:id").get(ItemsApi.findItems)
+	app.route("/items/").post(ItemsApi.createItem)
+	app.route("/items/").put(ItemsApi.updateItem)
+	app.route("/items/").delete(ItemsApi.deleteItems)
 }
